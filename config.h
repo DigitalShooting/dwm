@@ -6,7 +6,7 @@
     { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
     { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
     { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
-    
+
 static const unsigned int tagspacing = 3;       /* space between tags */
 static const unsigned int tagpadding = 25;      /* inner padding of tags */
 static const unsigned int taglinepx = 2;        /* height of tag underline */
@@ -49,59 +49,21 @@ static const Layout layouts[] = {
 
 static const Tag tags[] = {
     /* name     layout          mfact   nmaster */
-    { "On/ Off", &layouts[0],    -1,     -1 },
-    { "Musik",   &layouts[0],    -1,     -1 },
-    { "VNC",  	 &layouts[0],    -1,     -1 },
-    { "Dateien", &layouts[0],    -1,     -1 },
+    { "DSC", &layouts[0],    -1,     -1 },
     { "etc.", 	 &layouts[0],    -1,     -1 },
 };
 
 static const Rule rules[] = {
     /* class                instance    title       tags mask       isfloating      iscentred       monitor */
-    { "Firefox",      	      NULL,       NULL,       1 << 0,         False,          False,          -1 },
-    { "banshee",              NULL,       NULL,       1 << 1,         False,          False,          -1 },
-    { "Vinagre",              NULL,       NULL,       1 << 2,         False,          False,           -1 },
-    { "Vlc",                  NULL,       NULL,       1 << 4,         False,          False,           -1 },
-    { "Thunar",               NULL,       NULL,       1 << 3,         False,          False,           -1 },
+    { "surf",      	      NULL,       NULL,       1 << 0,         False,          False,          -1 },
 };
 
-static const char *menu[] = { "dmenu_run", "-i", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[9][ColFG], NULL };
-static const char *webb[] = { "google-chrome", NULL, "Google-chrome" };
-static const char *chat[] = { "skype", NULL, "Skype" };
 static const char *term[] = { "urxvtc", NULL, "URxvt" };
-static const char *edit[] = { "geany", NULL, "Geany" };
-static const char *mdia[] = { "vlc", NULL, "Vlc" };
-static const char *file[] = { "pcmanfm", NULL, "Pcmanfm" };
-static const char *prts[] = { "scrot", NULL };
-static const char *play[] = { "ncmpcpp", "toggle" };
-static const char *stop[] = { "ncmpcpp", "stop" };
-static const char *prev[] = { "ncmpcpp", "prev" };
-static const char *next[] = { "ncmpcpp", "next" };
-static const char *mute[] = { "amixer", "-q", "set", "PCM", "toggle", NULL };
-static const char *volu[] = { "amixer", "-q", "set", "PCM", "5%+", "unmute", NULL };
-static const char *vold[] = { "amixer", "-q", "set", "PCM", "5%-", "unmute", NULL };
-
-static const char *dmenucmd[] = { "dmenu_run", NULL};
 static const char *termcmd[]  = { "xterm", NULL };
 
 static Key keys[] = {
-    { MODKEY,           XK_p,       spawn,          {.v = dmenucmd } },
-    { MONKEY,           XK_p,       spawn,          {.v = menu } },
     { MODKEY|ShiftMask, XK_Return,  spawn,          {.v = termcmd } },
-    { MONKEY,           XK_w,       runorraise,     {.v = webb } },
-    { MONKEY,           XK_s,       runorraise,     {.v = chat } },
     { MONKEY,           XK_Return,  runorraise,     {.v = term } },
-    { MONKEY,           XK_e,       runorraise,     {.v = edit } },
-    { MONKEY,           XK_m,       runorraise,     {.v = mdia } },
-    { MONKEY,           XK_f,       runorraise,     {.v = file } },
-    { MONKEY,           XK_Print,   spawn,          {.v = prts } },
-    { MONKEY,           XK_F5,      spawn,          {.v = play } },
-    { MONKEY,           XK_F6,      spawn,          {.v = stop } },
-    { MONKEY,           XK_F7,      spawn,          {.v = prev } },
-    { MONKEY,           XK_F8,      spawn,          {.v = next } },
-    { MONKEY,           XK_F10,     spawn,          {.v = mute } },
-    { MONKEY,           XK_F11,     spawn,          {.v = vold } },
-    { MONKEY,           XK_F12,     spawn,          {.v = volu } },
     { MODKEY|ShiftMask, XK_q,       quit,           {0} },
     { MODKEY|ShiftMask, XK_b,       togglebar,      {0} },
     { MODKEY|ShiftMask, XK_c,       killclient,     {0} },
